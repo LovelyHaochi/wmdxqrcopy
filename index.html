@@ -86,7 +86,7 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        $("img").attr("src", "https://tool.oschina.net/action/qrcode/generate?data=" + qrData)
+        $("img").attr("src", "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + qrData)
         
         var date = new Date(expireTime);
         var m = date.getMonth() + 1;
