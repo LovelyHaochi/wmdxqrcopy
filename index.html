@@ -100,6 +100,7 @@
         var h = date.getHours();
         h = h < 10 ? "0" + h : h;
         var minute = date.getMinutes();
+        minute = minute < 10 ? "0" + minute : minute;
 
         var expireTimeStr = "有效期限 : " + m + "/" + d + " " + h + ":" + minute;
         $(".footer").text(expireTimeStr);
