@@ -7,6 +7,7 @@
     <title>舞萌DX / 中二节奏 登入二维码</title>
 
     <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script type="text/javascript">
         var getUrlParameter = function getUrlParameter(sParam) {
             var sPageURL = window.location.search.substring(1),
@@ -86,8 +87,11 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        $("img").attr("src", "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + qrData)
         
+        new QRCode(document.getElementById("qrcode"), {text: qrData, width: 200, height: 200});
+        
+        setTimeout(function () { $("img").css("display", ""); }, 50);
+
         var date = new Date(expireTime);
         var m = date.getMonth() + 1;
         m = m < 10 ? "0" + m : m;
@@ -108,7 +112,7 @@
         <div class="header line-break">把下方二维码对准机台扫描处，可用机台有【舞萌DX】和【中二节奏】</div>
         <div class="main">
             <div class="wrapper">
-                <img></img>
+                <div id="qrcode"></div>
             </div>
         </div>
         <div class="footer" style="color: #cc0000; font-weight: bold;">有效期限 : </div>
